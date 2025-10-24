@@ -6,7 +6,6 @@ from torch.nn import functional as F
 with open("data/thirukkural.txt", "r", encoding="utf-8") as f:
     lines = [l.strip() for l in f.readlines() if l.strip()]
 text = "\n".join(lines)
-
 chars = sorted(list(set(text)))
 vocab_size = len(chars)
 stoi = {ch: i for i, ch in enumerate(chars)}
@@ -14,7 +13,7 @@ itos = {i: ch for ch, i in stoi.items()}
 encode = lambda s: [stoi[c] for c in s]
 decode = lambda l: ''.join([itos[i] for i in l])
 data = torch.tensor(encode(text), dtype=torch.long)
-print(vocab_size)
+
 # Dataset splits
 n = int(0.9 * len(data))
 train_data, val_data = data[:n], data[n:]
@@ -31,6 +30,7 @@ def get_batch(split):
 # Initialize or load checkpoint
 model = TinyTransformer(vocab_size).to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
+
 start_epoch = 0
 
 ckpt_path = "checkpoint.pt"
@@ -42,7 +42,7 @@ if os.path.exists(ckpt_path):
     start_epoch = checkpoint['epoch'] + 1
 
 # Training
-epochs = 50
+epochs = 10
 for epoch in range(start_epoch, epochs):
     model.train()
     losses = []
