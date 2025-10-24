@@ -1,9 +1,9 @@
 ## Character based Tamil language model
 
-##### Purpose
+### Purpose
 Educational
 
-##### Goals
+### Goals
 
 - Build a single layer transformer from scratch
 - Train it using Thirukural dataset
@@ -37,6 +37,21 @@ uv run infer.py
 uv run summary.py
 ```
 
+#### Expected Results
+
+- After 10 epochs (loss 1.6673)
+```
+திரும் தெறிக்கும் நீரு என்போது அறிவும் சொல்படங்கிய தாய்ந்குத் தென்னதெனத்து ஒருவன்.
+கருணாநிதி: காள் குலகும் வலியாசத்து நற்கி வோது வர்.
+வருக்குறள்: பல்லவற்று இன்றையை அனியுமை ஒல்லாத அச்சிய பிடப்போல், இவ்வதற்
+```
+
+- After 50 epochs (loss 1.3316)
+```
+திருந்தாமல் வேண்டார்களுடியின் வாழ்வாறு யாத்துச் சிறந்ததில் பேசாவினால் வுளையே மட்டும்.
+திருக்குறள்: ஒருவன் வேண்டு மேனக் கோலைப் ப் பின்றுச்சிகிறப்பும் ஒன்றராப் காகை. தவரேன் இக்கத்தலை.
+வரதராய்தரிருகாலேம் தோ,
+```
 
  ##### CITATION
  - Thirukural dataset downloaded from https://github.com/tk120404/thirukkural
