@@ -57,6 +57,6 @@ uv run summary.py
  ##### CITATION
  - Thirukural dataset downloaded from https://github.com/tk120404/thirukkural
  - Attention is all you need - https://arxiv.org/abs/1706.03762
- - ChatGPT :) 
+  
 
  #### [License](./LICENSE)
