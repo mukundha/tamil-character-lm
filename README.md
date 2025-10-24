@@ -5,11 +5,12 @@ Educational
 
 ### Goals
 
-- Build a single layer transformer from scratch
+- Build a single layer transformer
 - Train it using Thirukural dataset
+- Run it on a laptop in few minutes
 
 #### Stats
-|  |  | 
+| Key | Value | 
 | -- | -- |
 | Transformer Layers | 1 |
 | Model Params |  66,432 | 
