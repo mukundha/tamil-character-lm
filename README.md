@@ -15,7 +15,7 @@ Educational
 | Transformer Layers | 1 |
 | Model Params |  66,432 | 
 | Vocabulary Size |  64 | 
-| Tokens | 640294 | 
+| Training Tokens | 640294 | 
 
 
 ### Prereq
@@ -53,6 +53,61 @@ uv run summary.py
 திருக்குறள்: ஒருவன் வேண்டு மேனக் கோலைப் ப் பின்றுச்சிகிறப்பும் ஒன்றராப் காகை. தவரேன் இக்கத்தலை.
 வரதராய்தரிருகாலேம் தோ,
 ```
+
+### Learnings
+
+- This is "Hello world" for Transformer models
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Transformer</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>| <img src="images/transformer.png"></td>
+      <td>
+      <pre lang="python">
+        <code>
+            self.block_size = block_size
+            self.token_emb = nn.Embedding(vocab_size, n_embd)
+            self.pos_emb = nn.Embedding(block_size, n_embd)
+            self.ln1 = nn.LayerNorm(n_embd)
+            self.attn = nn.MultiheadAttention(n_embd, n_heads, batch_first=True)
+            self.ln2 = nn.LayerNorm(n_embd)
+            self.ff = nn.Sequential(
+                nn.Linear(n_embd, 4*n_embd),
+                nn.ReLU(),
+                nn.Linear(4*n_embd, n_embd)
+            )
+            self.lm_head = nn.Linear(n_embd, vocab_size)
+            </code></pre></td>
+    </tr>
+</tbody>
+</table>
+
+- Training loop is exactly similar to any other Neural network
+
+```
+model = 
+optimizer = 
+
+loop:
+    x,y = getData()
+    loss = model(x,y)
+    loss.backward()
+    optimizer.step()
+```
+- Preparing the training data and shaping them, input to the transformer is `batch` x `block_size`
+
+- This completes a simple lifecycle, data prep, training and inference, all running locally 
+
+- Next step is to scale this up, to see what more model params with more data with more time can do
+
+https://github.com/mukundha/tamil-token-lm
 
  ##### CITATION
  - Thirukural dataset downloaded from https://github.com/tk120404/thirukkural
