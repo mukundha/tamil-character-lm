@@ -9,7 +9,7 @@ Educational
 - Train it using Thirukural dataset
 - Run it on a laptop in few minutes
 
-#### Stats
+#### Model Card
 | Key | Value | 
 | -- | -- |
 | Transformer Layers | 1 |
@@ -107,7 +107,7 @@ loop:
 
 - Next step is to scale this up, to see what more model params with more data with more time can do
 
-https://github.com/mukundha/tamil-token-lm
+https://github.com/mukundha/tamil-chinna-model
 
  ##### CITATION
  - Thirukural dataset downloaded from https://github.com/tk120404/thirukkural
