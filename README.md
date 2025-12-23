@@ -19,9 +19,32 @@ Educational
 
 
 ### Prereq
+### Install PyTorch (GPU/CPU)
+
+Create Virtual environment:
+
 ```
-uv pip install torch tqdm matplotlib
+uv venv
 ```
+
+Pick one of the following based on your machine:
+
+- Windows/Linux (CUDA GPU):
+  - Find the matching CUDA build for your driver here: https://pytorch.org/get-started/locally/
+  - Example (CUDA 13.x):
+    ```
+    uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+    ```
+
+- macOS (Apple Silicon MPS):
+  ```
+  uv pip install torch torchvision torchaudio
+  ```
+
+- CPU only:
+  ```
+  uv pip install torch torchvision torchaudio
+  ```
 
 ### Training 
 ```

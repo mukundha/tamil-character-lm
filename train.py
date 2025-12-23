@@ -1,6 +1,10 @@
 import torch, os
 from model import TinyTransformer
 from torch.nn import functional as F
+from check_gpu import get_backend
+
+#get the right backend
+device = get_backend(True)
 
 # Load data
 with open("data/thirukkural.txt", "r", encoding="utf-8") as f:
@@ -18,7 +22,7 @@ data = torch.tensor(encode(text), dtype=torch.long)
 n = int(0.9 * len(data))
 train_data, val_data = data[:n], data[n:]
 block_size, batch_size = 128, 16
-device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+
 
 def get_batch(split):
     d = train_data if split == 'train' else val_data
